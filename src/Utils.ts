@@ -1,15 +1,7 @@
-
-export interface ViewportInfo{
-    width: number;
-    height: number;
-    canvasWidth: number;
-    canvasHeight: number;
-    pixelRatio: number;
-    stageScale: number;
-}
+import {ViewportInfo} from "./interface/ViewportInfo";
 
 /**
- * Returns the viewport and canvas dimensions and related info.
+ * Returns the viewport, canvas dimensions.
  */
 export function getViewportInfo(): ViewportInfo {
     return {
@@ -17,7 +9,21 @@ export function getViewportInfo(): ViewportInfo {
         height: window.innerHeight,
         canvasWidth: window.innerWidth,
         canvasHeight: window.innerHeight,
-        pixelRatio: window.devicePixelRatio,
-        stageScale: 1
     };
 }
+
+/**
+ * Pick a random int between two values (included)
+ */
+export function randomIntFromInterval(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+/**
+ * Pick a random element from an array
+ */
+export function randomElementFromArray(array: any[]) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+export const lerp = (a: number, b: number, t: number) => a + t * (b - a);

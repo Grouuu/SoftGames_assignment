@@ -10,7 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
-    "sourceMap": true
+    "sourceMap": true,
+    "strictPropertyInitialization": false,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

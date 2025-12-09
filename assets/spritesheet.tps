@@ -124,7 +124,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../build/assets/spritesheet.json</filename>
+                <filename>../build/assets/spritesheet.json</filename>
             </struct>
         </map>
         <key>multiPackMode</key>
@@ -188,6 +188,73 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">spritesheet_elements/card_back.png</key>
+            <key type="filename">spritesheet_elements/card_c_10.png</key>
+            <key type="filename">spritesheet_elements/card_c_11.png</key>
+            <key type="filename">spritesheet_elements/card_c_12.png</key>
+            <key type="filename">spritesheet_elements/card_c_13.png</key>
+            <key type="filename">spritesheet_elements/card_c_14.png</key>
+            <key type="filename">spritesheet_elements/card_c_2.png</key>
+            <key type="filename">spritesheet_elements/card_c_3.png</key>
+            <key type="filename">spritesheet_elements/card_c_4.png</key>
+            <key type="filename">spritesheet_elements/card_c_5.png</key>
+            <key type="filename">spritesheet_elements/card_c_6.png</key>
+            <key type="filename">spritesheet_elements/card_c_7.png</key>
+            <key type="filename">spritesheet_elements/card_c_8.png</key>
+            <key type="filename">spritesheet_elements/card_c_9.png</key>
+            <key type="filename">spritesheet_elements/card_d_10.png</key>
+            <key type="filename">spritesheet_elements/card_d_11.png</key>
+            <key type="filename">spritesheet_elements/card_d_12.png</key>
+            <key type="filename">spritesheet_elements/card_d_13.png</key>
+            <key type="filename">spritesheet_elements/card_d_14.png</key>
+            <key type="filename">spritesheet_elements/card_d_2.png</key>
+            <key type="filename">spritesheet_elements/card_d_3.png</key>
+            <key type="filename">spritesheet_elements/card_d_4.png</key>
+            <key type="filename">spritesheet_elements/card_d_5.png</key>
+            <key type="filename">spritesheet_elements/card_d_6.png</key>
+            <key type="filename">spritesheet_elements/card_d_7.png</key>
+            <key type="filename">spritesheet_elements/card_d_8.png</key>
+            <key type="filename">spritesheet_elements/card_d_9.png</key>
+            <key type="filename">spritesheet_elements/card_h_10.png</key>
+            <key type="filename">spritesheet_elements/card_h_11.png</key>
+            <key type="filename">spritesheet_elements/card_h_12.png</key>
+            <key type="filename">spritesheet_elements/card_h_13.png</key>
+            <key type="filename">spritesheet_elements/card_h_14.png</key>
+            <key type="filename">spritesheet_elements/card_h_2.png</key>
+            <key type="filename">spritesheet_elements/card_h_3.png</key>
+            <key type="filename">spritesheet_elements/card_h_4.png</key>
+            <key type="filename">spritesheet_elements/card_h_5.png</key>
+            <key type="filename">spritesheet_elements/card_h_6.png</key>
+            <key type="filename">spritesheet_elements/card_h_7.png</key>
+            <key type="filename">spritesheet_elements/card_h_8.png</key>
+            <key type="filename">spritesheet_elements/card_h_9.png</key>
+            <key type="filename">spritesheet_elements/card_s_10.png</key>
+            <key type="filename">spritesheet_elements/card_s_11.png</key>
+            <key type="filename">spritesheet_elements/card_s_12.png</key>
+            <key type="filename">spritesheet_elements/card_s_13.png</key>
+            <key type="filename">spritesheet_elements/card_s_14.png</key>
+            <key type="filename">spritesheet_elements/card_s_2.png</key>
+            <key type="filename">spritesheet_elements/card_s_3.png</key>
+            <key type="filename">spritesheet_elements/card_s_4.png</key>
+            <key type="filename">spritesheet_elements/card_s_5.png</key>
+            <key type="filename">spritesheet_elements/card_s_6.png</key>
+            <key type="filename">spritesheet_elements/card_s_7.png</key>
+            <key type="filename">spritesheet_elements/card_s_8.png</key>
+            <key type="filename">spritesheet_elements/card_s_9.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0,0</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>27,38,53,75</rect>
+                <key>scale9Paddings</key>
+                <rect>27,38,53,75</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileLists</key>
         <map type="SpriteSheetMap">
@@ -196,6 +263,59 @@
                 <key>files</key>
                 <array>
                     <filename>spritesheet_elements/button_default.png</filename>
+                    <filename>spritesheet_elements/card_back.png</filename>
+                    <filename>spritesheet_elements/card_c_10.png</filename>
+                    <filename>spritesheet_elements/card_c_11.png</filename>
+                    <filename>spritesheet_elements/card_c_12.png</filename>
+                    <filename>spritesheet_elements/card_c_13.png</filename>
+                    <filename>spritesheet_elements/card_c_14.png</filename>
+                    <filename>spritesheet_elements/card_c_2.png</filename>
+                    <filename>spritesheet_elements/card_c_3.png</filename>
+                    <filename>spritesheet_elements/card_c_4.png</filename>
+                    <filename>spritesheet_elements/card_c_5.png</filename>
+                    <filename>spritesheet_elements/card_c_6.png</filename>
+                    <filename>spritesheet_elements/card_c_7.png</filename>
+                    <filename>spritesheet_elements/card_c_8.png</filename>
+                    <filename>spritesheet_elements/card_c_9.png</filename>
+                    <filename>spritesheet_elements/card_d_10.png</filename>
+                    <filename>spritesheet_elements/card_d_11.png</filename>
+                    <filename>spritesheet_elements/card_d_12.png</filename>
+                    <filename>spritesheet_elements/card_d_13.png</filename>
+                    <filename>spritesheet_elements/card_d_14.png</filename>
+                    <filename>spritesheet_elements/card_d_2.png</filename>
+                    <filename>spritesheet_elements/card_d_3.png</filename>
+                    <filename>spritesheet_elements/card_d_4.png</filename>
+                    <filename>spritesheet_elements/card_d_5.png</filename>
+                    <filename>spritesheet_elements/card_d_6.png</filename>
+                    <filename>spritesheet_elements/card_d_7.png</filename>
+                    <filename>spritesheet_elements/card_d_8.png</filename>
+                    <filename>spritesheet_elements/card_d_9.png</filename>
+                    <filename>spritesheet_elements/card_h_10.png</filename>
+                    <filename>spritesheet_elements/card_h_11.png</filename>
+                    <filename>spritesheet_elements/card_h_12.png</filename>
+                    <filename>spritesheet_elements/card_h_13.png</filename>
+                    <filename>spritesheet_elements/card_h_14.png</filename>
+                    <filename>spritesheet_elements/card_h_2.png</filename>
+                    <filename>spritesheet_elements/card_h_3.png</filename>
+                    <filename>spritesheet_elements/card_h_4.png</filename>
+                    <filename>spritesheet_elements/card_h_5.png</filename>
+                    <filename>spritesheet_elements/card_h_6.png</filename>
+                    <filename>spritesheet_elements/card_h_7.png</filename>
+                    <filename>spritesheet_elements/card_h_8.png</filename>
+                    <filename>spritesheet_elements/card_h_9.png</filename>
+                    <filename>spritesheet_elements/card_s_10.png</filename>
+                    <filename>spritesheet_elements/card_s_11.png</filename>
+                    <filename>spritesheet_elements/card_s_12.png</filename>
+                    <filename>spritesheet_elements/card_s_13.png</filename>
+                    <filename>spritesheet_elements/card_s_14.png</filename>
+                    <filename>spritesheet_elements/card_s_2.png</filename>
+                    <filename>spritesheet_elements/card_s_3.png</filename>
+                    <filename>spritesheet_elements/card_s_4.png</filename>
+                    <filename>spritesheet_elements/card_s_5.png</filename>
+                    <filename>spritesheet_elements/card_s_6.png</filename>
+                    <filename>spritesheet_elements/card_s_7.png</filename>
+                    <filename>spritesheet_elements/card_s_8.png</filename>
+                    <filename>spritesheet_elements/card_s_9.png</filename>
                 </array>
             </struct>
         </map>

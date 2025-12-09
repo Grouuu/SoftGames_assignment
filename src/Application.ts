@@ -1,21 +1,37 @@
-import {Assets, Application as PIXIApplication, Sprite} from "pixi.js";
+import {Application as PIXIApplication} from "pixi.js";
+import {GameStage} from "./stage/GameStage";
 
 export class Application extends PIXIApplication {
 
-    public async startApplication () {
+    private static instance: Application;
+    private gameStage: GameStage;
 
-        console.log("START");
-
-        // const sheet = await Assets.load('assets/spritesheet.json');
-        // console.error(sheet);
-        // const sprite = new Sprite(sheet.textures['button_default.png']);
-        // console.log(sprite.width, sprite.height);
-        // sprite.position.set(500, 500);
-        // this.stage.addChild(sprite);
+    constructor() {
+        super();
+        Application.instance = this;
     }
 
-    public onResize (width: number, height: number) {
+    public static getInstance(): Application {
+        return Application.instance;
+    }
 
+    /** Game entry point **/
+    public async startApplication () {
+        await this.addGameStage();
+    }
+
+    public onResize (viewportWidth: number, viewportHeight: number) {
+        if (!this.gameStage) {
+            return;
+        }
+
+        this.gameStage.onResize(viewportWidth, viewportHeight);
+    }
+
+    private async addGameStage() {
+        this.gameStage = new GameStage();
+        this.stage.addChild(this.gameStage);
+        await this.gameStage.init();
     }
 
 }

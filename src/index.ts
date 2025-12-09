@@ -1,6 +1,6 @@
-import {Assets, AssetsManifest} from "pixi.js";
 import {Application} from "./Application";
 import {getViewportInfo} from "./Utils";
+import {GameAssetsManager} from "./GameAssetsManager";
 
 const gameWidth = 1080;
 const gameHeight = 1920;
@@ -22,34 +22,18 @@ const gameHeight = 1920;
         backgroundColor: 0x000000,
     });
 
-    await loadGameAssets();
+    await GameAssetsManager.getInstance().loadAssets();
+    await GameAssetsManager.getInstance().initGameAssets();
 
     document.body.appendChild(app.canvas);
 
     listenResize();
-    
+
     // force the initial resize
     resizeCanvas();
 
     // start entry point
     app.startApplication();
-
-    // load the game assets
-    async function loadGameAssets(): Promise<void> {
-        const manifest = {
-            bundles: [
-                {
-                    name: "spritesheet",
-                    assets: [
-                        { alias: "spritesheet", src: "./assets/spritesheet.json" },
-                    ]
-                },
-            ]
-        } satisfies AssetsManifest;
-
-        await Assets.init({ manifest });
-        await Assets.loadBundle(["spritesheet"]);
-    }
 
     function resizeCanvas() {
         const viewPortInfo = getViewportInfo();
