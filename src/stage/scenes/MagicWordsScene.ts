@@ -143,14 +143,15 @@ export class MagicWordsScene extends Scene {
             const isImage = element[0] == "{";
 
             if (isImage) {
-                const textureKey = element.slice(1, -1);
-                const texture = Assets.get(textureKey);
 
-                if (!texture) {
+                const textureKey = element.slice(1, -1);
+
+                if (!this.data.emojies.has(textureKey)) {
                     console.error("Missing emoji:", textureKey);
                     return;
                 }
 
+                const texture = Assets.get(textureKey);
                 const image = Sprite.from(texture);
 
                 image.scale.set(EMOJI_SCALE);

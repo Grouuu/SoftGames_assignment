@@ -43,22 +43,22 @@ export class DialogDataManager {
 
     private async loadImages(jsonData: DialogData){
 
-        // Create maps for easy access
-        const emojies = new Map<string, Texture>();
-        const avatars = new Map<string, Texture>();
+        // Record images name to check missing assets
+        const emojies = new Set<string>();
+        const avatars = new Set<string>();
         
         // Load emojies
         for (const emoji of jsonData.emojies) {
             Assets.add({ alias: emoji.name, src: emoji.url, parser: 'loadTextures' });
-            const texture = await Assets.load(emoji.name);
-            emojies.set(emoji.name, texture);
+            await Assets.load(emoji.name);
+            emojies.add(emoji.name);
         }
         
         // Load avatars
         for (const avatar of jsonData.avatars) {
             Assets.add({ alias: avatar.name, src: avatar.url, parser: 'loadTextures' });
-            const texture = await Assets.load(avatar.name);
-            avatars.set(avatar.name, texture);
+            await Assets.load(avatar.name);
+            avatars.add(avatar.name);
         }
         
         return { emojies, avatars };

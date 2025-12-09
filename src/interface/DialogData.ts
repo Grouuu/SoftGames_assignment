@@ -2,8 +2,8 @@ import {Texture} from "pixi.js";
 
 export interface DialogParsedData {
     dialogues: DialogueEntry[];
-    emojies: Map<string, Texture>;
-    avatars: Map<string, Texture>;
+    emojies: Set<string>;
+    avatars: Set<string>;
 }
 
 export interface DialogData {
