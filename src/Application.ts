@@ -15,7 +15,9 @@ export class Application extends PIXIApplication {
         return Application.instance;
     }
 
-    /** Game entry point **/
+    /**
+     * Game entry point
+     */
     public async startApplication () {
         await this.addGameStage();
     }

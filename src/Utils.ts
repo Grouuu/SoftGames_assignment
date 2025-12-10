@@ -26,9 +26,14 @@ export function randomElementFromArray(array: any[]) {
     return array[Math.floor(Math.random() * array.length)];
 }
 
+/**
+ * Return the value between to values depending of a linear progress
+ */
 export const lerp = (a: number, b: number, t: number) => a + t * (b - a);
 
-
+/**
+ * Ease a linear progress
+ */
 export function easeInOutSine(x: number): number {
     return -(Math.cos(Math.PI * x) - 1) / 2;
 }

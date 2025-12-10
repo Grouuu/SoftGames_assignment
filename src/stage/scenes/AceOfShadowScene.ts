@@ -2,7 +2,7 @@ import {Point} from "pixi.js";
 import {easeInOutSine, lerp, randomElementFromArray, randomIntFromInterval} from "../../Utils";
 import {Scene} from "../Scene";
 import {Card} from "./components/Card";
-import gsap from 'gsap';
+import {gsap} from 'gsap';
 import {GAME_WIDTH} from "../..";
 
 const NUMBER_CARDS_TO_SHOW = 144;

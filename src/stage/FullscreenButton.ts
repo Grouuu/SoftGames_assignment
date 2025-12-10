@@ -1,6 +1,6 @@
 import {Container, Sprite} from "pixi.js";
 import {GameAssetsManager} from "../GameAssetsManager";
-import {GAME_HEIGHT, GAME_WIDTH} from "..";
+import {GAME_WIDTH} from "..";
 import {FullscreenManager} from "../FullscreenManager";
 
 export class FullscreenButton extends Container {
