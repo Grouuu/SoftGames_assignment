@@ -80,9 +80,11 @@ export class Header extends Container {
 
     private addSceneButton(buttonConfig: HeaderButtonConfig) {
         const container = new Container();
-        const background = this.createSceneButtonBackground(buttonConfig);
-        const label = this.createSceneButtonLabel(buttonConfig);
 
+        const background = this.createSceneButtonBackground(buttonConfig);
+        background.cursor = 'pointer';
+
+        const label = this.createSceneButtonLabel(buttonConfig);
         // align the label related to the background
         label.position.set(background.width / 2 + HEADER_BUTTON_LABEL_OFFSET.x, background.height / 2 + HEADER_BUTTON_LABEL_OFFSET.y);
 
