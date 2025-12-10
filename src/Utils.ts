@@ -27,3 +27,8 @@ export function randomElementFromArray(array: any[]) {
 }
 
 export const lerp = (a: number, b: number, t: number) => a + t * (b - a);
+
+
+export function easeInOutSine(x: number): number {
+    return -(Math.cos(Math.PI * x) - 1) / 2;
+}

@@ -1,5 +1,5 @@
 import {Point} from "pixi.js";
-import {lerp, randomElementFromArray, randomIntFromInterval} from "../../Utils";
+import {easeInOutSine, lerp, randomElementFromArray, randomIntFromInterval} from "../../Utils";
 import {Scene} from "../Scene";
 import {Card} from "./components/Card";
 import gsap from 'gsap';
@@ -104,7 +104,7 @@ export class AceOfShadowScene extends Scene {
                 duration: MOVE_DURATION_IN_SECOND,
                 onUpdate: () => {
                     const timelineProgress = timeline.progress();
-                    const easeProgress = this.easeInOutSine(timelineProgress);
+                    const easeProgress = easeInOutSine(timelineProgress);
 
                     if (timelineProgress == 1) {
                         // end of the animation
@@ -118,10 +118,6 @@ export class AceOfShadowScene extends Scene {
                 }
             })
         ;
-    }
-
-    private easeInOutSine(x: number): number {
-        return -(Math.cos(Math.PI * x) - 1) / 2;
     }
 
 }
