@@ -1,9 +1,9 @@
 import {CanvasTextOptions, Container, Sprite, Text} from "pixi.js";
 import {GameAssetsManager} from "../GameAssetsManager";
-import {getViewportInfo} from "../Utils";
 import {SceneName} from "../enum/SceneName";
 import {HeaderButtonConfig} from "../interface/HeaderButtonConfig";
 import {HeaderButtonStruct} from "../interface/HeaderButtonStruct";
+import {GAME_WIDTH} from "..";
 
 /**
  * Configuration for all header buttons
@@ -60,19 +60,10 @@ export class Header extends Container {
         this.initLayout();
     }
 
-    public resize(viewportWidth: number, viewportHeight: number) {
-        this.updateLayout(viewportWidth, viewportHeight);
-    }
-
     private initLayout() {
-        const { width, height } = getViewportInfo();
-        this.updateLayout(width, height);
-    }
-
-    private updateLayout(width: number, height: number) {
         const totalButtonsWidth = this.sceneButtons.reduce((total: number, button: HeaderButtonStruct) => total += button.background.width, 0);
         const totalButtonsMargin = LAYOUT_CONFIG.buttonMargin * (this.sceneButtons.length - 1);
-        const startPositionX = (width - totalButtonsWidth - totalButtonsMargin) / 2;
+        const startPositionX = GAME_WIDTH / 2 - (totalButtonsWidth - totalButtonsMargin) / 2;
 
         let buttonPositionX = startPositionX;
         let buttonPositionY = LAYOUT_CONFIG.buttonPositionY;

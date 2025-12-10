@@ -2,6 +2,7 @@ import {Particle, ParticleContainer, ParticleContainerOptions, Texture} from "pi
 import {Scene} from "../Scene";
 import {ParticleData} from "../../interface/ParticleData";
 import {Application} from "../../Application";
+import {GAME_WIDTH} from "../..";
 
 const NUMBER_PARTICLES = 10;
 const PARTICLES_CONTAINER_Y = 400;
@@ -29,8 +30,8 @@ export class PhoenixFlameScene extends Scene {
         this.startEmit();
     }
     
-    public override updateLayout(width: number, height: number) {
-        this.particlesContainer.position.set( width / 2 + PARTICLES_CONTAINER_OFFSET_X, PARTICLES_CONTAINER_Y);
+    public initLayout() {
+        this.particlesContainer.position.set(GAME_WIDTH / 2 + PARTICLES_CONTAINER_OFFSET_X, PARTICLES_CONTAINER_Y);
     }
 
     private createParticlesContainer() {

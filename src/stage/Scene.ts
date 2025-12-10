@@ -1,7 +1,6 @@
 import {Container} from "pixi.js";
 import {SceneConfig} from "../interface/SceneConfig";
 import {SceneName} from "../enum/SceneName";
-import {getViewportInfo} from "../Utils";
 
 export class Scene extends Container {
 
@@ -12,19 +11,6 @@ export class Scene extends Container {
     }
 
     public start(){
-        // override
-    }
-
-    public resize(viewportWidth: number, viewportHeight: number) {
-        this.updateLayout(viewportWidth, viewportHeight);
-    }
-    
-    protected initLayout() {
-        const { width, height } = getViewportInfo();
-        this.updateLayout(width, height);
-    }
-    
-    protected updateLayout(width: number, height: number) {
         // override
     }
 

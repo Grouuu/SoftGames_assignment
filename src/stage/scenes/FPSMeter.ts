@@ -1,9 +1,9 @@
 import {Container, Text} from "pixi.js";
 import {Application} from "../../Application";
-import {getViewportInfo} from "../../Utils";
 
 const FPS_TARGET = 60;
-const FPS_POSITION_Y = 50;
+const FPS_POSITION_X = 20;
+const FPS_POSITION_Y = 20;
 
 const FPS_TEXT_STYLE = {
     fill: 0xFFFFFF,
@@ -22,14 +22,9 @@ export class FPSMeter extends Container {
         this.startUpdate();
         this.initLayout();
     }
-
-    public resize(viewportWidth: number, viewportHeight: number) {
-        this.updateLayout(viewportWidth, viewportHeight);
-    }
     
     private initLayout() {
-        const { width, height } = getViewportInfo();
-        this.updateLayout(width, height);
+        this.fpsText.position.set(FPS_POSITION_X, FPS_POSITION_Y);
     }
 
     private createFPSText() {
@@ -37,10 +32,6 @@ export class FPSMeter extends Container {
             style: FPS_TEXT_STYLE
         });
         this.addChild(this.fpsText);
-    }
-
-    private updateLayout(width: number, height: number) {
-        this.fpsText.position.set(width * 0.1, FPS_POSITION_Y);
     }
 
     private startUpdate() {

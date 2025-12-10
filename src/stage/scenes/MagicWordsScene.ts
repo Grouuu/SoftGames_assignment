@@ -3,6 +3,7 @@ import {Scene} from "../Scene";
 import {GameAssetsManager} from "../../GameAssetsManager";
 import {DialogDataManager} from "../../remote/DialogsDataManager";
 import {DialogParsedData} from "../../interface/DialogData";
+import {GAME_WIDTH} from "../..";
 
 const DIALOG_BUBBLE_POSITION_Y = 400;
 const DIALOG_BUBBLE_POSITION_OFFSET = { x: 0, y: 0 };
@@ -36,9 +37,9 @@ export class MagicWordsScene extends Scene {
         this.setup();
     }
     
-    public override updateLayout(width: number, height: number) {
-        const dialogBubbleMiddlePoint = new Point(width / 2, DIALOG_BUBBLE_POSITION_Y);
-        const avatarMiddlePoint = new Point(width / 2, AVATAR_POSITION_Y);
+    public initLayout() {
+        const dialogBubbleMiddlePoint = new Point(GAME_WIDTH / 2, DIALOG_BUBBLE_POSITION_Y);
+        const avatarMiddlePoint = new Point(GAME_WIDTH / 2, AVATAR_POSITION_Y);
 
         this.loadingText.position.set(dialogBubbleMiddlePoint.x, dialogBubbleMiddlePoint.y);
 

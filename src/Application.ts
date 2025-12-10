@@ -20,14 +20,6 @@ export class Application extends PIXIApplication {
         await this.addGameStage();
     }
 
-    public onResize (viewportWidth: number, viewportHeight: number) {
-        if (!this.gameStage) {
-            return;
-        }
-
-        this.gameStage.onResize(viewportWidth, viewportHeight);
-    }
-
     private async addGameStage() {
         this.gameStage = new GameStage();
         this.stage.addChild(this.gameStage);

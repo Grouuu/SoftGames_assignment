@@ -3,6 +3,7 @@ import {easeInOutSine, lerp, randomElementFromArray, randomIntFromInterval} from
 import {Scene} from "../Scene";
 import {Card} from "./components/Card";
 import gsap from 'gsap';
+import {GAME_WIDTH} from "../..";
 
 const NUMBER_CARDS_TO_SHOW = 144;
 const START_RANK = 2;
@@ -48,10 +49,9 @@ export class AceOfShadowScene extends Scene {
         return `card_${type}_${rank}.png`;
     }
     
-    public override updateLayout(width: number, height: number) {
-
+    public initLayout() {
         // update reference points
-        const middlePoint = new Point(width / 2, CARDS_POSITION_Y);
+        const middlePoint = new Point(GAME_WIDTH / 2, CARDS_POSITION_Y);
         this.currentFirstPilePoint = new Point(middlePoint.x + CARD_FIRST_PILE_OFFSET.x, middlePoint.y + CARD_FIRST_PILE_OFFSET.y);
         this.currentSecondPilePoint = new Point(middlePoint.x + CARD_SECOND_PILE_OFFSET.x, middlePoint.y + CARD_SECOND_PILE_OFFSET.y);
 

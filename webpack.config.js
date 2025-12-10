@@ -1,57 +1,62 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env, argv) => {
-    const isProduction = argv.mode === 'production';
+module.exports = {
+    mode: 'development',
+    entry: './src/index.ts',
     
-    return {
-        mode: argv.mode || 'development',
-        entry: './src/index.ts',
-        module: {
-            rules: [
-                {
-                test: /\.tsx?$/,
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'js/bundle.js',
+        clean: {
+            keep(asset) {
+                return asset.includes('styles/') || asset.includes('assets/');
+            }
+        }
+    },
+
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-                },
-            ],
-        },
-        resolve: {
-            extensions: ['.tsx', '.ts', '.js'],
-        },
-        output: {
-            filename: isProduction ? 'js/[name].[contenthash].js' : 'js/index.js',
-            path: path.resolve(__dirname, 'build'),
-            clean: {
-                keep: /styles|assets/,
-            }
-        },
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: './build/index.html',
-                inject: 'body',
-                scriptLoading: 'blocking'
-            }),
-        ],
-        optimization: {
-        splitChunks: {
-            chunks: 'all',
-        },
-        },
-        performance: {
-        maxAssetSize: 512000,
-        maxEntrypointSize: 512000,
-        },
-        devServer: {
-            static: {
-                directory: path.join(__dirname, 'build'),
             },
-            compress: true,
-            port: 9000,
-            hot: false,
-            liveReload: true,
-            watchFiles: ['src/**/*'],
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+        }),
+    ],
+
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'build'),
         },
-        devtool: isProduction ? 'source-map' : 'eval-source-map',
-    };
+        hot: false,
+        liveReload: true,
+        open: false,
+        port: 8080,
+        compress: true,
+        client: {
+            overlay: false
+        }
+    },
+
+    devtool: 'inline-source-map',
+
+    performance: {
+        hints: false,
+    }
 };

@@ -1,4 +1,4 @@
-import {Container} from "pixi.js";
+import {Container, Graphics} from "pixi.js";
 import {Header} from "./Header";
 import {SceneName} from "../enum/SceneName";
 import {Scene} from "./Scene";
@@ -7,6 +7,7 @@ import {SceneConfig} from "../interface/SceneConfig";
 import {MagicWordsScene} from "./scenes/MagicWordsScene";
 import {PhoenixFlameScene} from "./scenes/PhoenixFlameScene";
 import {FPSMeter} from "./scenes/FPSMeter";
+import {GAME_HEIGHT, GAME_WIDTH} from "..";
 
 const SCENES_CONFIG: SceneConfig[] = [
     {
@@ -32,22 +33,14 @@ export class GameStage extends Container {
     private currentScene: Scene;
     private fpsMeter: FPSMeter;
 
+    private debugLayoutArea: Graphics;
+    private isShowDebugLayoutArea: boolean = false;
+
     public async init() {
+        this.showDebugLayoutArea();
         this.addHeader();
         this.addFPSMeter();
         this.showScene(SceneName.AceOfShadow);
-    }
-
-    public onResize(viewportWidth: number , viewportHeight: number) {
-        if (this.header) {
-            this.header.resize(viewportWidth, viewportHeight);
-        }
-        if (this.fpsMeter) {
-            this.fpsMeter.resize(viewportWidth, viewportHeight);
-        }
-        if (this.currentScene){
-            this.currentScene.resize(viewportWidth, viewportHeight);
-        }
     }
 
     private addHeader() {
@@ -85,6 +78,20 @@ export class GameStage extends Container {
         }
         
         this.showScene(sceneName);        
+    }
+
+    /** Use to show the area reserved for the game layout in red */
+    private showDebugLayoutArea() {
+        if (!this.isShowDebugLayoutArea) {
+            return;
+        }
+
+        this.debugLayoutArea = new Graphics();
+        this.debugLayoutArea
+            .rect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+            .fill({ color: 0xff0000 })
+        ;
+        this.addChild(this.debugLayoutArea);
     }
 
 }
