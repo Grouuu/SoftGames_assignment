@@ -6,6 +6,7 @@ import {AceOfShadowScene} from "./scenes/AceOfShadowScene";
 import {SceneConfig} from "../interface/SceneConfig";
 import {MagicWordsScene} from "./scenes/MagicWordsScene";
 import {PhoenixFlameScene} from "./scenes/PhoenixFlameScene";
+import {FPSMeter} from "./scenes/FPSMeter";
 
 const SCENES_CONFIG: SceneConfig[] = [
     {
@@ -29,15 +30,20 @@ export class GameStage extends Container {
 
     private header: Header;
     private currentScene: Scene;
+    private fpsMeter: FPSMeter;
 
     public async init() {
         this.addHeader();
+        this.addFPSMeter();
         this.showScene(SceneName.AceOfShadow);
     }
 
     public onResize(viewportWidth: number , viewportHeight: number) {
         if (this.header) {
             this.header.resize(viewportWidth, viewportHeight);
+        }
+        if (this.fpsMeter) {
+            this.fpsMeter.resize(viewportWidth, viewportHeight);
         }
         if (this.currentScene){
             this.currentScene.resize(viewportWidth, viewportHeight);
@@ -49,6 +55,11 @@ export class GameStage extends Container {
             onSelectScene: (scenename: SceneName) => this.onSelectScene(scenename)
         });
         this.addChild(this.header);
+    }
+
+    private addFPSMeter() {
+        this.fpsMeter = new FPSMeter();
+        this.addChild(this.fpsMeter);
     }
 
     private showScene(sceneName: SceneName) {
