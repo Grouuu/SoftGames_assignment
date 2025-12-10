@@ -8,6 +8,7 @@ import {MagicWordsScene} from "./scenes/MagicWordsScene";
 import {PhoenixFlameScene} from "./scenes/PhoenixFlameScene";
 import {FPSMeter} from "./scenes/FPSMeter";
 import {GAME_HEIGHT, GAME_WIDTH} from "..";
+import {FullscreenButton} from "./FullscreenButton";
 
 const SCENES_CONFIG: SceneConfig[] = [
     {
@@ -32,6 +33,7 @@ export class GameStage extends Container {
     private header: Header;
     private currentScene: Scene;
     private fpsMeter: FPSMeter;
+    private fullscreenButton: FullscreenButton;
 
     private debugLayoutArea: Graphics;
     private isShowDebugLayoutArea: boolean = false;
@@ -40,6 +42,7 @@ export class GameStage extends Container {
         this.showDebugLayoutArea();
         this.addHeader();
         this.addFPSMeter();
+        this.addFullscreenButton();
         this.showScene(SceneName.AceOfShadow);
     }
 
@@ -53,6 +56,11 @@ export class GameStage extends Container {
     private addFPSMeter() {
         this.fpsMeter = new FPSMeter();
         this.addChild(this.fpsMeter);
+    }
+
+    private addFullscreenButton() {
+        this.fullscreenButton = new FullscreenButton();
+        this.addChild(this.fullscreenButton);
     }
 
     private showScene(sceneName: SceneName) {
