@@ -2,12 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: './src/index.ts',
-    
+
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'js/bundle.js',
+        publicPath: '',
+        chunkFilename: 'js/[name].js',
         clean: {
             keep(asset) {
                 return asset.includes('styles/') || asset.includes('assets/');
@@ -31,6 +32,12 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
         ],
+        parser: {
+            javascript: {
+                // prevent libraries from splitting dynamic imports into multiple chunks
+                dynamicImportMode: 'lazy'
+            }
+        }
     },
 
     plugins: [
@@ -54,9 +61,16 @@ module.exports = {
         }
     },
 
-    devtool: 'inline-source-map',
+    // keep source maps but not inline
+    devtool: 'source-map',
 
     performance: {
         hints: false,
-    }
+    },
+
+    optimization: {
+        splitChunks: false,
+        runtimeChunk: false,
+        minimize: false
+    },
 };
