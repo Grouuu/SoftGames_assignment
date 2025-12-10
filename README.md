@@ -1,2 +1,3 @@
 # SoftGames_assignment
-Game Developer Assignment
+
+Here's hosted web version : https://grouuu.com/softgames/
